@@ -11,11 +11,15 @@ Order:
 2. Write to the database
 3. Read from the database
 
-Encryption:
--Input a username and password
--Store the username and password
--Encrypt the username and password using bcrypt
--Use the bcrypt built in hashing system
+Encryption: /
+-Input a username and password /
+-Encrypt the password using bcrypt / 
+-Use the bcrypt built in hashing system/
 
 
 "Bcrypt is a cryptographic hash function designed for password hashing and safe storing in the backend of applications in a way that is less susceptible to dictionary-based cyberattacks" - NordVPN (todays sponsor)
+
+Write to the database:
+-Open the SQL server /
+-Select the table to write to 
+-Select the column to write the usernames and passwords

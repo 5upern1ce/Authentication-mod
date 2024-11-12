@@ -1,39 +1,49 @@
-import sqlite3, bcrypt
+import mysql.connector, bcrypt
 
-"""connection = pyodbc.connect('Driver={SQL Server};'
-                      'Server=localhost;'
-                      'Database=logins;'
-                      'Trusted_Connection=yes;')"""
-
-
-#Inputs the username 
-def UserIn():
-    user = input("What is your username? \n").encode()
-    return user
+# Connect to the MySQL database
+connection = mysql.connector.connect(
+    host="localhost",      # or the server IP
+    user="root",
+    password ="saroot",
+    database="logins"  # the name of the database you want to connect to
+)
 
 
-#Stores User in an SQL server
-def StoreUser(user):
-    pass
+#Inputs the user details
+def GetUserDetails():
+    user = input("What is your username? \n")
+    passwd = input("What is your password? \n")
+    return user, passwd
+
+#Stores User details in an SQL server
+def StoreDetails(user, passwd):
+    cursor = connection.cursor()
+    insert_query = """
+    INSERT INTO users (username, password) VALUES (%s, %s)
+    """
+    data = (user, passwd)
+
+    cursor.execute(insert_query, data)
+    connection.commit()
+    print("User data input successfully!")
 
 
-#Inputs the password
-def PasswordIn():
-    passwd = input("What is your password? \n").encode()
-    return passwd
-
-
-#Stores the Password in an SQL server
-def storepass(passwd):
-    pass
 
 #Hashes the password
 def PassHash(passwd):
-    hashedpw = bcrypt.hashpw(passwd, bcrypt.gensalt()) 
+    hashedpw = bcrypt.hashpw(passwd.encode(), bcrypt.gensalt()) #Hashes and creates salt
     return hashedpw
 
 def main():
-    print(PassHash(PasswordIn()))
+    user, passwd = GetUserDetails()
+    encodedPasswd = PassHash(passwd)
+    StoreDetails(user, encodedPasswd)
+
 
 if __name__ == "__main__":
-    main()
+    if connection.is_connected:
+        print("Connected successfully!")
+        main()
+        connection.close()
+    else:
+        print("Connection was unsuccessful")
