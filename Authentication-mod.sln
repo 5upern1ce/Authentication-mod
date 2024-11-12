@@ -1,0 +1,23 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 17
+VisualStudioVersion = 17.7.34221.43
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{888888A0-9F3D-457C-B088-3A5042F75D52}") = "Authentication-mod", "Authentication-mod\Authentication-mod.pyproj", "{65C03513-4410-4F55-9989-14DE6ED908B9}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{65C03513-4410-4F55-9989-14DE6ED908B9}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{65C03513-4410-4F55-9989-14DE6ED908B9}.Release|Any CPU.ActiveCfg = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {2BE2182C-AC2D-471C-A6EE-E7A4E6F5600E}
+	EndGlobalSection
+EndGlobal
