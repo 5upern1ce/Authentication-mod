@@ -1,0 +1,21 @@
+Requirements:
+-Write to an sql database
+-Check against the database when logging in
+-Use encryption
+-Be a module for future importing
+-Be readable
+-Have a README
+
+Order:
+1. Encryption 
+2. Write to the database
+3. Read from the database
+
+Encryption:
+-Input a username and password
+-Store the username and password
+-Encrypt the username and password using bcrypt
+-Use the bcrypt built in hashing system
+
+
+"Bcrypt is a cryptographic hash function designed for password hashing and safe storing in the backend of applications in a way that is less susceptible to dictionary-based cyberattacks" - NordVPN (todays sponsor)
