@@ -21,5 +21,5 @@ Encryption: /
 
 Write to the database:
 -Open the SQL server /
--Select the table to write to 
--Select the column to write the usernames and passwords
+-Select the table to write to /
+-Select the column to write the usernames and passwords /
