@@ -19,7 +19,9 @@ Encryption: /
 
 "Bcrypt is a cryptographic hash function designed for password hashing and safe storing in the backend of applications in a way that is less susceptible to dictionary-based cyberattacks" - NordVPN (todays sponsor)
 
-Write to the database:
+Write to the database: /
 -Open the SQL server /
 -Select the table to write to /
 -Select the column to write the usernames and passwords /
+
+Read from the database:

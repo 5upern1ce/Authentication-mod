@@ -1,3 +1,4 @@
+from sqlite3 import connect
 import mysql.connector, bcrypt
 
 # Connect to the MySQL database
@@ -29,6 +30,25 @@ def StoreDetails(user, passwd):
 
 
 
+#Checks password for login
+def login(user, passwd):
+    cursor = connection.cursor
+    
+    select_query = "SELECT password FROM users WHERE username = %s"
+    cursor.execute(select_query, (user,))
+    result = cursor.fetchone()
+    
+    if result:
+        stored_hashed_password = result[0]
+        if bcrypt.checkpw(passwd.encode(), stored_hashed_password.encode()):
+            print("Login successful!")
+        else:
+            print("Incorrect password.")
+    else:
+        print("Username not found.")
+
+        
+
 #Hashes the password
 def PassHash(passwd):
     hashedpw = bcrypt.hashpw(passwd.encode(), bcrypt.gensalt()) #Hashes and creates salt
@@ -38,6 +58,11 @@ def main():
     user, passwd = GetUserDetails()
     encodedPasswd = PassHash(passwd)
     StoreDetails(user, encodedPasswd)
+    
+    print("\n Login Check")
+    
+    login_user, login_passwd = GetUserDetails()
+    login(login_user, login_passwd)
 
 
 if __name__ == "__main__":
